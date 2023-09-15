@@ -1,10 +1,11 @@
-from Modelo.Log import Log
+from Modelo.Bot import Bot
+from Servicio.ServiciosConfiguracion import ServiciosConfiguracion
 from Servicio.ServiciosLog import ServiciosLog
 
 
 class ServiciosBot:
-    def __init__(self, bot):
-        self._bot = bot
+    def __init__(self):
+        self._bot = Bot()
 
     @property
     def bot(self):
@@ -17,8 +18,7 @@ class ServiciosBot:
     def iniciar(self):
         servicioslog = None
         try:
-            log = Log()
-            servicioslog = ServiciosLog(log)
+            servicioslog = ServiciosLog()
             self.bot.estado = servicioslog.verificar_archivo_log()
             if self.bot.estado is False:
                 return
@@ -29,11 +29,21 @@ class ServiciosBot:
             mensaje = f" {'~'*128 }"
             servicioslog.escribir(mensaje, tiempo=False)
 
+            serviciosconfiguracion = ServiciosConfiguracion()
+            self.bot.estado = serviciosconfiguracion.cargar(servicioslog)
+            if self.bot.estado is False:
+                return
+            self.bot.estado = serviciosconfiguracion.configuracion.bot.estado
+            if self.bot.estado is False:
+                mensaje = f"Bot apagado por configuracion..."
+                servicioslog.escribir(mensaje)
+                return
+
         except Exception as excepcion:
             self.bot.estado = False
             mensaje = f" {'-'*128 }"
             servicioslog.escribir(mensaje, tiempo=False)
-            mensaje = f"ERROR - Ejecucion principal: {str(excepcion)}"
+            mensaje = f"ERROR - Ejecucion principal: {type(excepcion)} - {str(excepcion)}"
             servicioslog.escribir(mensaje)
         finally:
             if not self.bot.estado:

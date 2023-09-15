@@ -2,10 +2,12 @@ import os
 from datetime import date
 import time
 
+from Modelo.Log import Log
+
 
 class ServiciosLog:
-    def __init__(self, log):
-        self._log = log
+    def __init__(self):
+        self._log = Log()
 
     @property
     def log(self):
