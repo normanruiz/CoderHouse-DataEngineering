@@ -1,20 +1,12 @@
 class Configuracion:
     def __init__(self):
         self._configfile = 'config.xml'
-        self._conexiones = []
         self._bot = None
+        self._conexiones = []
 
     @property
     def configfile(self):
         return self._configfile
-
-    @property
-    def conexiones(self):
-        return self._conexiones
-
-    @conexiones.setter
-    def conexiones(self, conexiones):
-        self._conexiones = conexiones
 
     @property
     def bot(self):
@@ -23,6 +15,14 @@ class Configuracion:
     @bot.setter
     def bot(self, bot):
         self._bot = bot
+
+    @property
+    def conexiones(self):
+        return self._conexiones
+
+    @conexiones.setter
+    def conexiones(self, conexiones):
+        self._conexiones = conexiones
 
 
 class Autor:
@@ -87,7 +87,23 @@ class Bot:
         self._autor = autor
 
 
+class Api:
+    def __init__(self, url=None, key=None):
+        self._url = url
+        self._key = key
 
+    @property
+    def url(self):
+        return self._url
 
+    @url.setter
+    def url(self, url):
+        self._url = url
 
+    @property
+    def key(self):
+        return self._key
 
+    @key.setter
+    def key(self, key):
+        self._key = key

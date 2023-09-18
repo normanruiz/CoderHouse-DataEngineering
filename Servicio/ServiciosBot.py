@@ -1,5 +1,6 @@
 from Modelo.Bot import Bot
 from Servicio.ServiciosConfiguracion import ServiciosConfiguracion
+from Servicio.ServiciosETL import ServiciosETL
 from Servicio.ServiciosLog import ServiciosLog
 
 
@@ -37,6 +38,11 @@ class ServiciosBot:
             if self.bot.estado is False:
                 mensaje = f"Bot apagado por configuracion..."
                 servicioslog.escribir(mensaje)
+                return
+
+            serviciosetl = ServiciosETL()
+            self.bot.estado = serviciosetl.extract(servicioslog, serviciosconfiguracion.configuracion.conexiones[0])
+            if self.bot.estado is False:
                 return
 
         except Exception as excepcion:

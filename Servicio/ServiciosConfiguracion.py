@@ -1,5 +1,6 @@
 import xmltodict
-from Modelo.Configuracion import Autor, Bot
+
+from Modelo.Configuracion import Autor, Bot, Api
 from Modelo.Configuracion import Configuracion
 
 
@@ -19,12 +20,15 @@ class ServiciosConfiguracion:
             with open(self.configuracion.configfile, 'r', encoding='utf8') as xmlfile:
                 xmlconfig = xmlfile.read()
                 config = xmltodict.parse(xmlconfig)
-            autor = Autor(config["parametros"]["bot"]["autor"]["nombre"],
-                          config["parametros"]["bot"]["autor"]["correo"])
-            bot = Bot(config["parametros"]["bot"]["nombre"],
-                      True if config["parametros"]["bot"]["estado"] == 'True' else False,
-                      int(config["parametros"]["bot"]["hilos"]), autor)
-            self.configuracion.bot = bot
+                autor = Autor(config["parametros"]["bot"]["autor"]["nombre"],
+                              config["parametros"]["bot"]["autor"]["correo"])
+                bot = Bot(config["parametros"]["bot"]["nombre"],
+                          True if config["parametros"]["bot"]["estado"] == 'True' else False,
+                          int(config["parametros"]["bot"]["hilos"]), autor)
+                self.configuracion.bot = bot
+                api = Api(config["parametros"]["conexiones"]["datos_origen"]["url"],
+                          config["parametros"]["conexiones"]["datos_origen"]["key"])
+                self.configuracion.conexiones.append(api)
 
             mensaje = f"Configuracion cargada correctamente..."
             servicioslog.escribir(mensaje)
