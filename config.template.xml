@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parametros>
+    <bot>
+        <nombre>Bot CoderHouse Data Engineering</nombre>
+        <estado>True</estado>
+        <hilos>10</hilos>
+        <autor>
+            <nombre>Norman Ruiz</nombre>
+            <correo>norman.ruiz@outlook.com.ar</correo>
+        </autor>
+    </bot>
+</parametros>
