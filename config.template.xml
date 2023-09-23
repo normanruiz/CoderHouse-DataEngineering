@@ -9,4 +9,10 @@
             <correo>norman.ruiz@outlook.com.ar</correo>
         </autor>
     </bot>
+    <conexiones>
+        <datos_origen>
+            <url>https://api.nasa.gov/neo/rest/v1/feed?start_date=START_DATE&amp;end_date=END_DATE&amp;api_key=API_KEY</url>
+            <key>tuapikey</key>
+        </datos_origen>
+    </conexiones>
 </parametros>
