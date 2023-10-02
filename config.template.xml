@@ -14,5 +14,13 @@
             <url>https://api.nasa.gov/neo/rest/v1/feed?start_date=START_DATE&amp;end_date=END_DATE&amp;api_key=API_KEY</url>
             <key>tuapikey</key>
         </datos_origen>
+        <datos_destino>
+            <host></host>
+            <port></port>
+            <database></database>
+            <user></user>
+            <password></password>
+            <schema></schema>
+        </datos_destino>
     </conexiones>
 </parametros>

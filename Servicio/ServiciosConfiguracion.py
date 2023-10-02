@@ -1,6 +1,6 @@
 import xmltodict
 
-from Modelo.Configuracion import Autor, Bot, Api
+from Modelo.Configuracion import Autor, Bot, Api, ConexionDB
 from Modelo.Configuracion import Configuracion
 
 
@@ -29,6 +29,13 @@ class ServiciosConfiguracion:
                 api = Api(config["parametros"]["conexiones"]["datos_origen"]["url"],
                           config["parametros"]["conexiones"]["datos_origen"]["key"])
                 self.configuracion.conexiones.append(api)
+                db_conexion = ConexionDB(config["parametros"]["conexiones"]["datos_destino"]["host"],
+                                         config["parametros"]["conexiones"]["datos_destino"]["port"],
+                                         config["parametros"]["conexiones"]["datos_destino"]["database"],
+                                         config["parametros"]["conexiones"]["datos_destino"]["user"],
+                                         config["parametros"]["conexiones"]["datos_destino"]["password"],
+                                         config["parametros"]["conexiones"]["datos_destino"]["schema"])
+                self.configuracion.conexiones.append(db_conexion)
 
             mensaje = f"Configuracion cargada correctamente..."
             servicioslog.escribir(mensaje)

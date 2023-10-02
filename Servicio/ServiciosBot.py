@@ -45,6 +45,14 @@ class ServiciosBot:
             if self.bot.estado is False:
                 return
 
+            self.bot.estado = serviciosetl.transform(servicioslog)
+            if self.bot.estado is False:
+                return
+
+            self.bot.estado = serviciosetl.load(servicioslog, serviciosconfiguracion.configuracion.conexiones[1])
+            if self.bot.estado is False:
+                return
+
         except Exception as excepcion:
             self.bot.estado = False
             mensaje = f" {'-'*128 }"

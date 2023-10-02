@@ -107,3 +107,59 @@ class Api:
     @key.setter
     def key(self, key):
         self._key = key
+
+class ConexionDB:
+    def __init__(self, host=None, port=None, database=None, user=None, password=None, schema=None):
+        self._host = host
+        self._port = port
+        self._database = database
+        self._user = user
+        self._password = password
+        self._schema = schema
+    @property
+    def host(self):
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        self._host = host
+
+    @property
+    def port(self):
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        self._port = port
+
+    @property
+    def database(self):
+        return self._database
+
+    @database.setter
+    def database(self, database):
+        self._database = database
+
+    @property
+    def user(self):
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        self._user = user
+
+    @property
+    def password(self):
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        self._password = password
+
+    @property
+    def schema(self):
+        return self._schema
+
+    @schema.setter
+    def schema(self, schema):
+        self._schema = schema
