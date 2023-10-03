@@ -18,6 +18,22 @@
 - Se sugiere ampliamente la creatividad del estudiante. Usar Apis que les resulten interesantes y están relacionadas a su contexto.
 - Revisar el instrumento de evaluación
 
+## Entregable 02
+
+### Objetivos generales
+- El script de la entrega 1 deberá adaptar datos leídos de la API y cargarlos en la tabla creada en la pre-entrega anterior en Redshift.
+
+### Objetivos específicos
+- Implementar funcionalidades de la librería Pandas en el código cargándolos en la tabla creada en la misma.
+- Solucionar una situación real de ETL donde puedan llegar a aparecer duplicados durante la ingesta de los datos.
+
+### Formato
+- Código en Python subido ya sea en repositorio de GitHub o en Google Drive.
+- Tabla creada en Redshift con los datos de muestra que hayan sido cargados mediante el script.
+### Sugerencias
+- Consultar la documentación oficial de Pandas; profundizar en su uso.
+- Revisar el instrumento de evaluación
+
 ## Ejecucion del script
 Para la correcta ejecucion se requieren las sigueintes importaqciones:
 - DATE
@@ -25,6 +41,11 @@ Para la correcta ejecucion se requieren las sigueintes importaqciones:
 - REQUESTS
 - XMLTODICT
 - TIME
+- Pandas
+- Sqlalchemy
+- Sqlalchemy-Redshift
+- Redshift_connector
+- Psycopg2
 
 Dentro de la raiz del proyecto ejecutar como root:
 ~~~

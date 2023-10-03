@@ -60,7 +60,7 @@ class ServiciosETL:
 
             dflvl1 = pd.DataFrame(self.datos_crudos['near_earth_objects'][str(date.today())])
             self.dataframe = dflvl1[['id', 'neo_reference_id', 'name', 'nasa_jpl_url', 'absolute_magnitude_h', 'is_potentially_hazardous_asteroid', 'is_sentry_object']]
-            self.dataframe = self.dataframe.astype({'id': 'int32', 'neo_reference_id': 'int32'})
+            self.dataframe = self.dataframe.astype({'id': 'int', 'neo_reference_id': 'int'})
             self.dataframe = self.dataframe.drop_duplicates()
 
             mensaje = f"Subproceso finalizado..."
@@ -84,7 +84,7 @@ class ServiciosETL:
 
             serviciosconexiondb = ServiciosConexionDB(conexion)
             serviciosconexiondb.conectar(servicioslog)
-            serviciosconexiondb.ejecutar_insert(servicioslog, self.dataframe)
+            serviciosconexiondb.ejecutar_insert_update(servicioslog, self.dataframe)
 
             mensaje = f"Subproceso finalizado..."
             servicioslog.escribir(mensaje)

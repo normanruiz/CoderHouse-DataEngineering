@@ -58,17 +58,19 @@ class ServiciosConexionDB:
         finally:
             return estado
 
-    def ejecutar_insert(self, servicioslog, dataframe):
+    def ejecutar_insert_update(self, servicioslog, dataframe):
         estado = True
         try:
-            mensaje = f"Insertando datos en base de datos: {self.configuracion.database}..."
+            mensaje = f"Insertando y actualizando datos en base de datos: {self.configuracion.database}..."
             servicioslog.escribir(mensaje)
-            dataframe.to_sql("asteroides", self.conexion, if_exists='append', index=False)
-            mensaje = f"Datos insertados correctamente..."
+            dataframe.to_sql("staging", self.conexion, if_exists='replace', index=False)
+            self.conexion.execute(f"DELETE FROM norman_ruiz_coderhouse.asteroides USING norman_ruiz_coderhouse.staging WHERE asteroides.id = staging.id")
+            self.conexion.execute(f"INSERT INTO norman_ruiz_coderhouse.asteroides (id, neo_reference_id, name, nasa_jpl_url, absolute_magnitude_h, is_potentially_hazardous_asteroid, is_sentry_object) select id, neo_reference_id, name, nasa_jpl_url, absolute_magnitude_h, is_potentially_hazardous_asteroid, is_sentry_object from norman_ruiz_coderhouse.staging")
+            mensaje = f"Datos insertados y actualizados correctamente..."
             servicioslog.escribir(mensaje)
         except Exception as excepcion:
             estado = False
-            mensaje = f"ERROR - Insertando datos: {type(excepcion)} - {str(excepcion)}"
+            mensaje = f"ERROR - Insertando y actualizando datos: {type(excepcion)} - {str(excepcion)}"
             servicioslog.escribir(mensaje)
             mensaje = f"WARNING!!! - Subproceso interrumpido..."
             servicioslog.escribir(mensaje)
