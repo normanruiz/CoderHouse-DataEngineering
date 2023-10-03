@@ -1,5 +1,6 @@
 from datetime import date
 import pandas as pd
+from pandas import json_normalize
 from Servicio.ServiciosConexionApi import ServiciosConexionApi
 from Servicio.ServiciosConexionDB import ServiciosConexionDB
 
@@ -58,10 +59,21 @@ class ServiciosETL:
             mensaje = f"Transformando datos..."
             servicioslog.escribir(mensaje)
 
-            dflvl1 = pd.DataFrame(self.datos_crudos['near_earth_objects'][str(date.today())])
-            self.dataframe = dflvl1[['id', 'neo_reference_id', 'name', 'nasa_jpl_url', 'absolute_magnitude_h', 'is_potentially_hazardous_asteroid', 'is_sentry_object']]
-            self.dataframe = self.dataframe.astype({'id': 'int', 'neo_reference_id': 'int'})
-            self.dataframe = self.dataframe.drop_duplicates()
+            df = json_normalize(self.datos_crudos['near_earth_objects'][str(date.today())])
+            df = df.rename(columns={
+                'links.self': 'links',
+                'estimated_diameter.kilometers.estimated_diameter_min': 'estimated_diameter_kilometers_min',
+                'estimated_diameter.kilometers.estimated_diameter_max': 'estimated_diameter_kilometers_max',
+                'estimated_diameter.meters.estimated_diameter_min': 'estimated_diameter_meters_min',
+                'estimated_diameter.meters.estimated_diameter_max': 'estimated_diameter_meters_max',
+                'estimated_diameter.miles.estimated_diameter_min': 'estimated_diameter_miles_min',
+                'estimated_diameter.miles.estimated_diameter_max': 'estimated_diameter_miles_max',
+                'estimated_diameter.feet.estimated_diameter_min': 'estimated_diameter_feet_min',
+                'estimated_diameter.feet.estimated_diameter_max': 'estimated_diameter_feet_max'
+            })
+            df = df.astype({'id': 'int', 'neo_reference_id': 'int'})
+            df = df.drop(columns=['close_approach_data'])
+            self.dataframe = df.drop_duplicates()
 
             mensaje = f"Subproceso finalizado..."
             servicioslog.escribir(mensaje)

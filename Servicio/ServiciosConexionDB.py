@@ -65,7 +65,7 @@ class ServiciosConexionDB:
             servicioslog.escribir(mensaje)
             dataframe.to_sql("staging", self.conexion, if_exists='replace', index=False)
             self.conexion.execute(f"DELETE FROM norman_ruiz_coderhouse.asteroides USING norman_ruiz_coderhouse.staging WHERE asteroides.id = staging.id")
-            self.conexion.execute(f"INSERT INTO norman_ruiz_coderhouse.asteroides (id, neo_reference_id, name, nasa_jpl_url, absolute_magnitude_h, is_potentially_hazardous_asteroid, is_sentry_object) select id, neo_reference_id, name, nasa_jpl_url, absolute_magnitude_h, is_potentially_hazardous_asteroid, is_sentry_object from norman_ruiz_coderhouse.staging")
+            self.conexion.execute(f"INSERT INTO norman_ruiz_coderhouse.asteroides (links, id, neo_reference_id, name, nasa_jpl_url, absolute_magnitude_h, is_potentially_hazardous_asteroid, is_sentry_object, estimated_diameter_kilometers_min, estimated_diameter_kilometers_max, estimated_diameter_meters_min, estimated_diameter_meters_max, estimated_diameter_miles_min, estimated_diameter_miles_max, estimated_diameter_feet_min, estimated_diameter_feet_max) select links, id, neo_reference_id, name, nasa_jpl_url, absolute_magnitude_h, is_potentially_hazardous_asteroid, is_sentry_object, estimated_diameter_kilometers_min, estimated_diameter_kilometers_max, estimated_diameter_meters_min, estimated_diameter_meters_max, estimated_diameter_miles_min, estimated_diameter_miles_max, estimated_diameter_feet_min, estimated_diameter_feet_max from norman_ruiz_coderhouse.staging")
             mensaje = f"Datos insertados y actualizados correctamente..."
             servicioslog.escribir(mensaje)
         except Exception as excepcion:

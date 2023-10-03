@@ -1,3 +1,4 @@
+import json
 from datetime import date
 import requests
 
@@ -25,7 +26,7 @@ class ServiciosConexionApi:
             url_end = url_start.replace("END_DATE", str(date.today()))
             url = url_end.replace("API_KEY", str(self.api.key))
             respuesta = requests.get(url)
-            registros = respuesta.json()
+            registros = json.loads(respuesta.text)
 
             mensaje = f"Subproceso finalizado..."
             servicioslog.escribir(mensaje)
