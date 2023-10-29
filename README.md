@@ -30,8 +30,25 @@
 ### Formato
 - Código en Python subido ya sea en repositorio de GitHub o en Google Drive.
 - Tabla creada en Redshift con los datos de muestra que hayan sido cargados mediante el script.
+
 ### Sugerencias
 - Consultar la documentación oficial de Pandas; profundizar en su uso.
+- Revisar el instrumento de evaluación
+
+## Entregable 3
+
+### Objetivos generales
+- El script de la 2da entrega debe correr en un container de Docker y estará embebido en un DAG de Airﬂow dentro del container.
+
+### Objetivos especíﬁcos
+- El container debe ser lo más liviano posible como para que el script funcione sin problemas. Cualquier usuario podría correr el container y que el script esté listo para su ejecución.
+
+### Formato
+- Dockerﬁle y código con todo lo necesario para correr (si es necesario incluir un manual de instrucciones o pasos para correrlo), subido en repositorio de Github o en Google Drive.
+
+### Sugerencias
+- La base de datos donde estará esta tabla no hace falta que viva en el container, sino que se tiene en cuenta que es un Redshift en la nube.
+- Investigar sobre Docker Compose para facilitar la tarea.
 - Revisar el instrumento de evaluación
 
 ## Ejecucion del script
