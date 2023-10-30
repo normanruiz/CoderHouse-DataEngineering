@@ -1,0 +1,6 @@
+requests
+xmltodict
+pandas
+sqlalchemy
+sqlalchemy-redshift
+psycopg2

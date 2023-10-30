@@ -1,0 +1,75 @@
+[2023-10-30T01:02:13.043+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T01:02:13.063+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T01:02:13.064+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 5
+[2023-10-30T01:02:13.135+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): asteroides-etl-task> on 2023-07-15 00:00:00+00:00
+[2023-10-30T01:02:13.145+0000] {standard_task_runner.py:57} INFO - Started process 1512 to run task
+[2023-10-30T01:02:13.151+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'asteroides-etl-dag', 'asteroides-etl-task', 'scheduled__2023-07-15T00:00:00+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/asteroides-etl_dag.py', '--cfg-path', '/tmp/tmpc3mnas3q']
+[2023-10-30T01:02:13.153+0000] {standard_task_runner.py:85} INFO - Job 48: Subtask asteroides-etl-task
+[2023-10-30T01:02:13.268+0000] {task_command.py:416} INFO - Running <TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [running]> on host ac9f9bef16c9
+[2023-10-30T01:02:13.424+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Norman Ruiz' AIRFLOW_CTX_DAG_ID='asteroides-etl-dag' AIRFLOW_CTX_TASK_ID='asteroides-etl-task' AIRFLOW_CTX_EXECUTION_DATE='2023-07-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-15T00:00:00+00:00'
+[2023-10-30T01:02:13.427+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-10-30T01:02:13.429+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo ya casi lo tengo!!!!']
+[2023-10-30T01:02:13.454+0000] {subprocess.py:86} INFO - Output:
+[2023-10-30T01:02:13.459+0000] {subprocess.py:93} INFO - ya casi lo tengo!!!!
+[2023-10-30T01:02:13.462+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-10-30T01:02:13.517+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=asteroides-etl-dag, task_id=asteroides-etl-task, execution_date=20230715T000000, start_date=20231030T010213, end_date=20231030T010213
+[2023-10-30T01:02:13.568+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-30T01:02:13.609+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-10-30T15:19:23.994+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T15:19:24.008+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T15:19:24.009+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 5
+[2023-10-30T15:19:24.138+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): asteroides-etl-task> on 2023-07-15 00:00:00+00:00
+[2023-10-30T15:19:24.148+0000] {standard_task_runner.py:57} INFO - Started process 2285 to run task
+[2023-10-30T15:19:24.152+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'asteroides-etl-dag', 'asteroides-etl-task', 'scheduled__2023-07-15T00:00:00+00:00', '--job-id', '177', '--raw', '--subdir', 'DAGS_FOLDER/asteroides-etl_dag.py', '--cfg-path', '/tmp/tmpulx77y5c']
+[2023-10-30T15:19:24.154+0000] {standard_task_runner.py:85} INFO - Job 177: Subtask asteroides-etl-task
+[2023-10-30T15:19:24.219+0000] {task_command.py:416} INFO - Running <TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [running]> on host d87e86d3d093
+[2023-10-30T15:19:24.316+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Norman Ruiz' AIRFLOW_CTX_DAG_ID='asteroides-etl-dag' AIRFLOW_CTX_TASK_ID='asteroides-etl-task' AIRFLOW_CTX_EXECUTION_DATE='2023-07-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-15T00:00:00+00:00'
+[2023-10-30T15:19:24.318+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-10-30T15:19:24.319+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker run -i asteroides-etl']
+[2023-10-30T15:19:24.337+0000] {subprocess.py:86} INFO - Output:
+[2023-10-30T15:19:24.363+0000] {subprocess.py:93} INFO - docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+[2023-10-30T15:19:24.363+0000] {subprocess.py:93} INFO - See 'docker run --help'.
+[2023-10-30T15:19:24.365+0000] {subprocess.py:97} INFO - Command exited with return code 125
+[2023-10-30T15:19:24.379+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 125.
+[2023-10-30T15:19:24.384+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=asteroides-etl-dag, task_id=asteroides-etl-task, execution_date=20230715T000000, start_date=20231030T151923, end_date=20231030T151924
+[2023-10-30T15:19:24.400+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 177 for task asteroides-etl-task (Bash command failed. The command returned a non-zero exit code 125.; 2285)
+[2023-10-30T15:19:24.445+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-10-30T15:19:24.466+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-10-30T19:25:32.427+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T19:25:32.445+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T19:25:32.446+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 5
+[2023-10-30T19:25:32.474+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): asteroides-etl-task> on 2023-07-15 00:00:00+00:00
+[2023-10-30T19:25:32.484+0000] {standard_task_runner.py:57} INFO - Started process 8429 to run task
+[2023-10-30T19:25:32.493+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'asteroides-etl-dag', 'asteroides-etl-task', 'scheduled__2023-07-15T00:00:00+00:00', '--job-id', '866', '--raw', '--subdir', 'DAGS_FOLDER/asteroides-etl_dag.py', '--cfg-path', '/tmp/tmpqlvi1lm_']
+[2023-10-30T19:25:32.495+0000] {standard_task_runner.py:85} INFO - Job 866: Subtask asteroides-etl-task
+[2023-10-30T19:25:32.579+0000] {task_command.py:416} INFO - Running <TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [running]> on host d87e86d3d093
+[2023-10-30T19:25:32.744+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Norman Ruiz' AIRFLOW_CTX_DAG_ID='asteroides-etl-dag' AIRFLOW_CTX_TASK_ID='asteroides-etl-task' AIRFLOW_CTX_EXECUTION_DATE='2023-07-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-15T00:00:00+00:00'
+[2023-10-30T19:25:32.746+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-10-30T19:25:32.747+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo "Corrio !!!!"']
+[2023-10-30T19:25:32.768+0000] {subprocess.py:86} INFO - Output:
+[2023-10-30T19:25:32.774+0000] {subprocess.py:93} INFO - Corrio !!!!
+[2023-10-30T19:25:32.775+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-10-30T19:25:32.820+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=asteroides-etl-dag, task_id=asteroides-etl-task, execution_date=20230715T000000, start_date=20231030T192532, end_date=20231030T192532
+[2023-10-30T19:25:32.904+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-30T19:25:32.947+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-10-30T19:26:10.306+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T19:26:10.323+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [queued]>
+[2023-10-30T19:26:10.323+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 5
+[2023-10-30T19:26:10.396+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): asteroides-etl-task> on 2023-07-15 00:00:00+00:00
+[2023-10-30T19:26:10.406+0000] {standard_task_runner.py:57} INFO - Started process 8585 to run task
+[2023-10-30T19:26:10.414+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'asteroides-etl-dag', 'asteroides-etl-task', 'scheduled__2023-07-15T00:00:00+00:00', '--job-id', '916', '--raw', '--subdir', 'DAGS_FOLDER/asteroides-etl_dag.py', '--cfg-path', '/tmp/tmp6d6y9x2f']
+[2023-10-30T19:26:10.416+0000] {standard_task_runner.py:85} INFO - Job 916: Subtask asteroides-etl-task
+[2023-10-30T19:26:10.490+0000] {task_command.py:416} INFO - Running <TaskInstance: asteroides-etl-dag.asteroides-etl-task scheduled__2023-07-15T00:00:00+00:00 [running]> on host d87e86d3d093
+[2023-10-30T19:26:10.605+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Norman Ruiz' AIRFLOW_CTX_DAG_ID='asteroides-etl-dag' AIRFLOW_CTX_TASK_ID='asteroides-etl-task' AIRFLOW_CTX_EXECUTION_DATE='2023-07-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-15T00:00:00+00:00'
+[2023-10-30T19:26:10.607+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-10-30T19:26:10.608+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo "Corrio !!!!"']
+[2023-10-30T19:26:10.628+0000] {subprocess.py:86} INFO - Output:
+[2023-10-30T19:26:10.631+0000] {subprocess.py:93} INFO - Corrio !!!!
+[2023-10-30T19:26:10.632+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-10-30T19:26:10.668+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=asteroides-etl-dag, task_id=asteroides-etl-task, execution_date=20230715T000000, start_date=20231030T192610, end_date=20231030T192610
+[2023-10-30T19:26:10.707+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-30T19:26:10.735+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
