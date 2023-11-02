@@ -79,13 +79,32 @@ NeoWs (Near Earth Object Web Service) es un servicio web RESTful para informaci√
 
 Conjunto de datos: Todos los datos provienen del equipo de asteroides JPL de la NASA (http://neo.jpl.nasa.gov/).
 
-## Generacion de contenedor asteriodes-etl
+## Ecosistema Con Docker
+
+El ecosistema fue desarrollado probado en Debian 12.
+
+Antes de echar a andar todo debemos ejecutar el siguiente comando: 
+
+~~~
+sudo chmod 777 /var/run/docker.sock
+~~~
+
+### Generacion de contenedor asteriodes-etl
+
 Una vez dentro de la carpeta del proyecto ejecutaremos:
 
 ~~~
 cd asteroides-etl
 docker build -t asteroides-etl .
-docker run asteroides-etl
 ~~~
 
+### Airflow
 
+Ubicado en la raiz del proyecto ejecutar:
+
+~~~
+cd airflow
+docker compose up 
+~~~
+
+*Para acceder al portal dirijase a http://localhost:8080/ en su navegador preferido y registrese con las siguientes credenciales: usr: airflow pwd: airflow*

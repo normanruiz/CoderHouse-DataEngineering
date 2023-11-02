@@ -1,3 +1,5 @@
-files_log/
-config.xml
-venv/
+asteroides-etl/script/files_log/
+asteroides-etl/script/config.xml
+asteroides-etl/script/venv/
+airflow/logs/*
+
