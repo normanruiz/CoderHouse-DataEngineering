@@ -51,6 +51,25 @@
 - Investigar sobre Docker Compose para facilitar la tarea.
 - Revisar el instrumento de evaluación
 
+## Entregable 4
+
+### Objetivos generales
+- Partiendo del último entregable, el script ya debería funcionar correctamente dentro de Airflow en un contenedor Docker. En este entregable, añadiremos alertas en base a thresholds de los valores que estemos analizando.
+
+### Objetivos específicos
+- Incorporar código que envíe alertas mediante SMTP.
+- Incorporar una forma fácil de configurar thresholds que van a ser analizados para el envío de alertas.
+
+### Formato
+- Dockerfile y código con todo lo necesario para correr (si es necesario incluir un manual de instrucciones o pasos para correrlo), subido en repositorio de Github o en Google Drive.
+- Proporcionar screenshot de un ejemplo de un correo envíado habiendo utilizado el código.
+
+### Sugerencias
+- La base de datos donde estará esta tabla no hace falta que viva en el container, sino que se tiene en cuenta que es un Redshift en la nube.
+- Investigar sobre Docker Compose para facilitar la tarea.
+- NO añadan ningún tipo de credencial al código. Usen variables de entorno.
+- Revisar la rúbrica
+
 ## Ejecucion del script
 Para la correcta ejecucion se requieren las sigueintes importaqciones:
 - DATE
@@ -108,3 +127,37 @@ docker compose up
 ~~~
 
 *Para acceder al portal dirijase a http://localhost:8080/ en su navegador preferido y registrese con las siguientes credenciales: usr: airflow pwd: airflow*
+
+## Envio de alertas
+
+Para el envio de alertas se deberan realizar dos configuraciones adicionales
+
+### Conexion a Redshift en la UI
+
+En el menu principal nos dirigimos a Admin - Conecciones 
+
+![image](https://github.com/normanruiz/CoderHouse-DataEngineering/assets/28979800/01b31a8f-3dfb-4384-8f94-ce45ca369d0d)
+
+Le damos click al boton "+", que nos mostrara un formulario de carga, en este cargamos los datos requeridos y guardamos.
+
+### Conexion a Servidor de SMTP
+
+Se debe agregar en el docker-compose.yaml en la seccion environment de x-airflow-common despues de la linea AIRFLOW__CORE__ENABLE_XCOM_PICKLING el siguiente bloque de configuraciones:
+
+~~~
+    AIRFLOW__SMTP__SMTP_HOST: ''
+    AIRFLOW__SMTP__SMTP_USER: ''
+    AIRFLOW__SMTP__SMTP_PASSWORD: ''
+    AIRFLOW__SMTP__SMTP_PORT: 
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: ''
+~~~
+
+Carque los datos de su proveedor de correo y guarde.
+
+Una ves realizadas estas configuraciones procederemos a reiniciar el ambiente con los siguientes comandos, dentro de la carpera airflow del proyecto:
+
+~~~
+docker compose down
+docker compose up
+~~~
+
